@@ -13,7 +13,6 @@ export const fetchTrendingVideos = async () => {
       key: API_KEY,
     },
   });
-
   return response.data.items;
 };
 
@@ -25,6 +24,5 @@ export const fetchVideoDetails = async (id) => {
       key: API_KEY,
     },
   });
-
   return response.data.items[0];
 };

@@ -11,7 +11,6 @@ import Profile from "./pages/Profile";
 const App = () => {
   return (
     <Routes>
-      {/* Layout Route */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/watch/:id" element={<Watch />} />

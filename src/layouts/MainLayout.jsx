@@ -6,11 +6,8 @@ const MainLayout = () => {
   return (
     <div className="min-h-screen bg-gray-950">
       <NavBar />
-
       <div className="flex">
         <SideBar />
-
-        {/* Yaha page render hoga */}
         <div className="flex-1 p-4 md:p-6 lg:p-8 overflow-x-hidden">
           <Outlet />
         </div>
