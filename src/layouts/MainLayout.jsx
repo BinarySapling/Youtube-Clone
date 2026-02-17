@@ -1,23 +1,19 @@
-import React from "react";
+import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   return (
-    <div className="app">
+    <div>
       <NavBar />
-      <div style={{ display: "flex" }}>
-        <SideBar />
-        <div style={{
-            flex: 1,
-            padding: "20px",
-            backgroundColor: "#f9f9f9",
-            minHeight: "100vh",
-          }}
-        >
-          {children}
-        </div>
 
+      <div className="flex">
+        <SideBar />
+
+        {/* Yaha page render hoga */}
+        <div className="flex-1 p-6">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

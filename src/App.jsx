@@ -1,21 +1,25 @@
-import React from 'react'
-import NavBar from './components/NavBar'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import './App.css'
-import SideBar from './components/SideBar'
-import { Route, Routes } from 'react-router-dom'
+import MainLayout from "./layouts/MainLayout";
+
+import Home from "./pages/Home";
+import Watch from "./pages/Watch";
+import Upload from "./pages/Upload";
+import Profile from "./pages/Profile";
+
 const App = () => {
   return (
-    <>
-    <Layout>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/watch/:id' element={<Watch/>}/>
-          <Route path='/upload' element={<Upload/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-        </Routes>
-    </Layout>
-    </>
-  )
-}
+    <Routes>
+      {/* Layout Route */}
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/watch/:id" element={<Watch />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/profile" element={<Profile />} />
+      </Route>
+    </Routes>
+  );
+};
 
-export default App
+export default App;
