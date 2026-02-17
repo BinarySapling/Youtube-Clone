@@ -9,8 +9,8 @@ export const fetchTrendingVideos = async () => {
     params: {
       part: "snippet,statistics",
       chart: "mostPopular",
-      regionCode: "IN",
-      maxResults: 10,
+      regionCode: "CA",
+      maxResults: 12,
       key: API_KEY,
     },
   });
@@ -52,4 +52,18 @@ export const fetchChannelDetails = async (channelId) => {
   });
 
   return response.data.items[0];
+};
+
+export const fetchRecommendedVideos = async (query) => {
+  const response = await axios.get(`${BASE_URL}/search`, {
+    params: {
+      part: "snippet",
+      q: query,
+      maxResults: 10,
+      type: "video",
+      key: API_KEY,
+    },
+  });
+
+  return response.data.items;
 };

@@ -5,7 +5,7 @@ const NavBar = () => {
   const[search,setSearch]=useState("")
   const navigate = useNavigate()
   const handleSearch = (e) =>{
-    if(e.key==="Enter" ){
+    if(e.key==="Enter"  && search!==""){
       navigate(`/search?q=${search}`)
     }
   }

@@ -8,11 +8,11 @@ const Sidebar = () => {
         <Link to="/" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
           Home
         </Link>
-        <Link to="/shorts" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
-          Shorts
+        <Link to="/" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
+          Trending
         </Link>
-        <Link to="/subscriptions" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
-          Subscriptions
+        <Link to="/upload" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
+          Upload
         </Link>
       </div>
     </div>
