@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="w-[220px] h-[100vh] bg-black text-white flex flex-col py-4 border-r border-orange-600"> 
-      <div className="flex flex-col gap-2 px-3">
-        <Link to="/" className="px-4 py-3 rounded-lg hover:bg-orange-600 hover:text-white cursor-pointer transition-all duration-200 font-medium">
+    <div className="w-[240px] h-[100vh] bg-black text-white flex flex-col py-4 border-r border-zinc-800"> 
+      <div className="flex flex-col gap-1 px-3">
+        <Link to="/" className="px-4 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors text-sm">
           Home
         </Link>
-        <Link to="/shorts" className="px-4 py-3 rounded-lg hover:bg-orange-600 hover:text-white cursor-pointer transition-all duration-200 font-medium">
+        <Link to="/shorts" className="px-4 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors text-sm">
           Shorts
         </Link>
-        <Link to="/subscriptions" className="px-4 py-3 rounded-lg hover:bg-orange-600 hover:text-white cursor-pointer transition-all duration-200 font-medium">
+        <Link to="/subscriptions" className="px-4 py-2.5 rounded-lg hover:bg-zinc-800 transition-colors text-sm">
           Subscriptions
         </Link>
       </div>

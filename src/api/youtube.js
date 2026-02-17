@@ -3,6 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://www.googleapis.com/youtube/v3";
 const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
+
 export const fetchTrendingVideos = async () => {
   const response = await axios.get(`${BASE_URL}/videos`, {
     params: {

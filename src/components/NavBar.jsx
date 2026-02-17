@@ -10,20 +10,21 @@ const NavBar = () => {
     }
   }
   return (
-    <div className='flex items-center justify-between px-6 py-4 bg-black text-white shadow-lg border-b border-orange-600'>
-      <Link to="/" className='text-2xl font-bold text-orange-500 cursor-pointer hover:text-orange-400 transition-colors'>
-        MediaPlatform
+    <div className='flex items-center justify-between px-4 py-3 bg-black text-white border-b border-zinc-800'>
+      <Link to="/" className='text-xl font-semibold text-orange-500 hover:text-orange-400 transition-colors'>
+        MediaTube
       </Link>
-      <input type="search" name="search" id="search" placeholder="Search..."
+      <input type="search" name="search" id="search" placeholder="Search"
        value={search}
        onChange={(e)=>setSearch(e.target.value)}
-        onKeyDownCapture={handleSearch}
-       className='px-4 py-2 w-96 bg-gray-900 text-white border-2 border-orange-600 rounded-full placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/50 transition-all' />
+        onKeyDown={handleSearch}
+       className='px-4 py-2 w-96 bg-zinc-900 text-white border border-zinc-700 rounded-full placeholder-gray-400 focus:outline-none focus:border-zinc-500 transition-colors' />
       <div className='flex items-center gap-6'>
-        <Link to="/upload" className='cursor-pointer hover:text-orange-500 font-medium transition-colors'>
+        <Link to="/upload" className='text-sm hover:text-orange-500 transition-colors'>
           Upload
         </Link>
-        <Link to="/profile" className='cursor-pointer hover:text-orange-500 font-medium transition-colors'>Profile
+        <Link to="/profile" className='w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-xs font-semibold'>
+          U
         </Link>
       </div>
     </div>
