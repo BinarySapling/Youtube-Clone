@@ -5,16 +5,12 @@ import { searchVideos } from "../api/youtube";
 const Search = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q");
-
   const [videos, setVideos] = useState([]);
-
   useEffect(() => {
     const loadResults = async () => {
-      if (!query) return;
       const data = await searchVideos(query);
       setVideos(data);
     };
-
     loadResults();
   }, [query]);
 
@@ -23,7 +19,6 @@ const Search = () => {
       <h1 className="text-xl font-bold mb-6">
         Search Results for "{query}"
       </h1>
-
       <div className="grid grid-cols-4 gap-6">
         {videos.map((video) => (
           <Link key={video.id.videoId} to={`/watch/${video.id.videoId}`} >
