@@ -16,3 +16,15 @@ export const fetchTrendingVideos = async () => {
 
   return response.data.items;
 };
+
+export const fetchVideoDetails = async (id) => {
+  const response = await axios.get(`${BASE_URL}/videos`, {
+    params: {
+      part: "snippet,statistics",
+      id: id,
+      key: API_KEY,
+    },
+  });
+
+  return response.data.items[0];
+};

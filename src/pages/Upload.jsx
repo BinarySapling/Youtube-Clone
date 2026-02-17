@@ -2,8 +2,8 @@ import React from "react";
 
 const Upload = () => {
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Upload Page</h1>
+    <div className="w-full max-w-4xl mx-auto">
+      <h1 className="text-xl md:text-2xl font-bold text-white">Upload Page</h1>
     </div>
   );
 };
