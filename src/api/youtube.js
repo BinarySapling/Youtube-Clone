@@ -26,3 +26,17 @@ export const fetchVideoDetails = async (id) => {
   });
   return response.data.items[0];
 };
+
+export const searchVideos = async (query) => {
+  const response = await axios.get(`${BASE_URL}/search`, {
+    params: {
+      part: "snippet",
+      q: query,
+      maxResults: 12,
+      type: "video",
+      key: API_KEY,
+    },
+  });
+
+  return response.data.items;
+};
