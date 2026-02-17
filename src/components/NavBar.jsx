@@ -10,7 +10,7 @@ const NavBar = () => {
     }
   }
   return (
-    <div className='flex items-center justify-between px-4 py-3 bg-black text-white border-b border-zinc-800'>
+    <div className='flex items-center justify-between px-4 py-3 bg-[#0f0f0f] text-white border-b border-zinc-800'>
       <Link to="/" className='text-xl font-semibold text-orange-500 hover:text-orange-400 transition-colors'>
         MediaTube
       </Link>
@@ -18,7 +18,7 @@ const NavBar = () => {
        value={search}
        onChange={(e)=>setSearch(e.target.value)}
         onKeyDown={handleSearch}
-       className='px-4 py-2 w-96 bg-zinc-900 text-white border border-zinc-700 rounded-full placeholder-gray-400 focus:outline-none focus:border-zinc-500 transition-colors' />
+       className='px-4 py-2 w-96 bg-[#121212] text-white border border-zinc-700 rounded-full placeholder-gray-400 focus:outline-none focus:border-zinc-500 transition-colors' />
       <div className='flex items-center gap-6'>
         <Link to="/upload" className='text-sm hover:text-orange-500 transition-colors'>
           Upload

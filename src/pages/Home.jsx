@@ -17,7 +17,7 @@ const Home = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8"> 
             {videos.map((video)=>(
                 <Link key={video.id} to={`/watch/${video.id}`} className="group cursor-pointer">
-                    <div className="relative overflow-hidden rounded-xl mb-3 bg-zinc-900">
+                    <div className="relative overflow-hidden rounded-xl mb-3 bg-[#272727]">
                         <img 
                           src={video.snippet.thumbnails.medium.url} 
                           alt={video.snippet.title} 

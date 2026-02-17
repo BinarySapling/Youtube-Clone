@@ -21,13 +21,13 @@ const Watch = () => {
 
     return (
     <div className="w-full max-w-[1280px] text-white">
-      <div className="w-full aspect-video mb-4 rounded-xl overflow-hidden bg-black">
+      <div className="w-full aspect-video mb-4 rounded-xl overflow-hidden bg-[#0f0f0f]">
         <iframe src={`https://www.youtube.com/embed/${id}`} title={video.snippet.title} allowFullScreen  className="w-full h-full"></iframe>
       </div>
       <h1 className="text-xl font-semibold mb-4">
         {video.snippet.title}
       </h1>
-      <div className="bg-zinc-900 p-4 rounded-xl text-sm text-gray-300 whitespace-pre-line max-h-60 overflow-y-auto">
+      <div className="bg-[#272727] p-4 rounded-xl text-sm text-gray-300 whitespace-pre-line max-h-60 overflow-y-auto">
         {video.snippet.description}
       </div>
     </div>

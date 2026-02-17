@@ -10,7 +10,7 @@ export const fetchTrendingVideos = async () => {
       part: "snippet,statistics",
       chart: "mostPopular",
       regionCode: "IN",
-      maxResults: 12,
+      maxResults: 10,
       key: API_KEY,
     },
   });
