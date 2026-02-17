@@ -21,13 +21,13 @@ const Watch = () => {
 
     return (
     <div className="w-full max-w-6xl mx-auto text-white">
-      <div className="w-full aspect-video mb-4 md:mb-6">
-        <iframe src={`https://www.youtube.com/embed/${id}`} title={video.snippet.title} allowFullScreen  className="w-full h-full rounded-lg"></iframe>
+      <div className="w-full aspect-video mb-4 md:mb-6 border-2 border-orange-600 rounded-lg overflow-hidden">
+        <iframe src={`https://www.youtube.com/embed/${id}`} title={video.snippet.title} allowFullScreen  className="w-full h-full"></iframe>
       </div>
-      <h1 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
+      <h1 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-orange-500">
         {video.snippet.title}
       </h1>
-      <div className="bg-gray-900 p-3  h-[] md:p-4 rounded-lg whitespace-pre-line text-sm md:text-base overflow-hidden">
+      <div className="bg-black border border-orange-600 p-3 md:p-4 rounded-lg whitespace-pre-line text-sm md:text-base overflow-hidden">
         {video.snippet.description}
       </div>
 
