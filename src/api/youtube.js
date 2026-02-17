@@ -41,3 +41,15 @@ export const searchVideos = async (query) => {
 
   return response.data.items;
 };
+
+export const fetchChannelDetails = async (channelId) => {
+  const response = await axios.get(`${BASE_URL}/channels`, {
+    params: {
+      part: "snippet",
+      id: channelId,
+      key: API_KEY,
+    },
+  });
+
+  return response.data.items[0];
+};
