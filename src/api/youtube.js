@@ -9,7 +9,7 @@ export const fetchTrendingVideos = async () => {
     params: {
       part: "snippet,statistics",
       chart: "mostPopular",
-      regionCode: "CA",
+      regionCode: "US",
       maxResults: 12,
       key: API_KEY,
     },

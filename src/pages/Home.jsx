@@ -20,10 +20,7 @@ const Home = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8">
                 {loading
                     ? Array(12).fill(0).map((_, i) => (
-                        <div
-                            key={i}
-                            className="animate-pulse"
-                        >
+                        <div key={i} className="animate-pulse">
                             <div className="bg-gray-800 h-40 rounded-lg"></div>
                             <div className="bg-gray-700 h-4 mt-3 w-3/4 rounded"></div>
                             <div className="bg-gray-700 h-4 mt-2 w-1/2 rounded"></div>
@@ -32,10 +29,7 @@ const Home = () => {
                     : videos.map((video) => (
                         <Link key={video.id} to={`/watch/${video.id}`} className="group cursor-pointer">
                             <div className="relative overflow-hidden rounded-xl mb-3 bg-[#272727]">
-                                <img
-                                    src={video.snippet.thumbnails.medium.url}
-                                    alt={video.snippet.title}
-                                    className="w-full aspect-video object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                                <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} className="w-full aspect-video object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
                                 />
                             </div>
                             <div className="flex gap-3">
