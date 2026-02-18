@@ -76,15 +76,15 @@ const HomeScroll = () => {
 
     return (
         <div className="w-full max-w-[1800px]">
-            <div className="flex gap-3 mb-6 overflow-x-auto pb-2">
+            <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
                 {['All', 'Music', 'Gaming', 'News', 'Live', 'Sports', 'Learning', 'Fashion'].map((category) => (
                     <Link
                         key={category}
                         to="/"
-                        className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
+                        className={`px-3 py-1 rounded-lg text-xs font-normal whitespace-nowrap transition-all duration-200 ${
                             category === 'All'
-                                ? 'bg-white text-black'
-                                : 'bg-zinc-800 text-white hover:bg-zinc-700'
+                                ? 'bg-zinc-800 text-white border border-zinc-700'
+                                : 'bg-zinc-900/50 text-gray-400 hover:bg-zinc-800/50 hover:text-gray-300 border border-zinc-800'
                         }`}
                     >
                         {category}

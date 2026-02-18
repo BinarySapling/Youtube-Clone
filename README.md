@@ -1,24 +1,27 @@
-# YouTube Clone
+# VidStream
 
-A YouTube clone built with React and Tailwind CSS.
+A modern video streaming platform built with React and Tailwind CSS.
 
 ## Features
 
 - Browse trending videos
-- Search functionality
+- Search functionality  
 - Responsive design
-- Dark theme
-- Watch videos
+- Dark theme with violet accents
+- Watch videos with recommendations
+- Watch History with localStorage
+- Infinite scroll (100 videos limit)
 - Upload and Profile pages
 
 ## Tech Stack
 
-- React
+- React 18
 - Vite
 - React Router
 - Tailwind CSS
 - Axios
 - YouTube Data API v3
+- Vercel Serverless Functions
 
 ## Setup
 
@@ -36,6 +39,26 @@ VITE_YOUTUBE_API_KEY=your_api_key_here
 ```bash
 npm run dev
 ```
+
+## Deployment to Vercel
+
+The app includes serverless API functions for production deployment to keep your API key secure.
+
+**For Local Development:**
+- The app uses direct YouTube API calls (requires `.env` file with API key)
+
+**For Production (Vercel):**
+1. Push your code to GitHub
+
+2. Import project in Vercel
+
+3. Add environment variable in Vercel:
+   - Key: `VITE_YOUTUBE_API_KEY`
+   - Value: Your YouTube API key
+
+4. Deploy
+
+Note: The serverless function in `/api/youtube.js` will automatically be used in production to hide your API key from the client bundle.
 
 ## Scripts
 

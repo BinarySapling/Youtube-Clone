@@ -3,7 +3,6 @@ import axios from "axios";
 const BASE_URL = "https://www.googleapis.com/youtube/v3";
 const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
-
 export const fetchTrendingVideos = async (pageToken = null) => {
   const response = await axios.get(`${BASE_URL}/videos`, {
     params: {
@@ -36,7 +35,7 @@ export const searchVideos = async (query, pageToken = null) => {
   const response = await axios.get(`${BASE_URL}/search`, {
     params: {
       part: "snippet",
-      q: query,
+      q: query, 
       maxResults: 12,
       type: "video",
       key: API_KEY,
