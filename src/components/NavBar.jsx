@@ -61,24 +61,24 @@ const NavBar = () => {
   
   return (
     <nav className='sticky top-0 z-50 flex items-center justify-between px-8 md:px-6 py-2.5 bg-[#0f0f0f]/95 backdrop-blur-md text-white border-b border-zinc-800/50 shadow-lg'>
-      <Link to="/" className='flex items-center gap-3 group min-w-fit'>
-        <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center border border-slate-600 group-hover:border-slate-500 transition-all duration-300'>
-          <span className='text-xl font-bold text-white tracking-tight'>VH</span>
+      <Link to="/" className='flex items-center gap-2.5 group min-w-fit'>
+        <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-violet-700 to-purple-700 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300'>
+          <span className='text-lg font-medium text-white tracking-tight'>VS</span>
         </div>
-        <span className='text-lg font-semibold text-white hidden sm:block tracking-wide'>
-          ViewHub
+        <span className='text-lg font-medium hidden sm:block tracking-tight'>
+          <span className='text-white'>Vid</span><span className='text-violet-500'>Stream</span>
         </span>
       </Link>
       
       <div className='flex-1 max-w-2xl mx-4 md:mx-8 relative' ref={searchRef}>
-        <div className={`flex items-center bg-[#121212] border rounded-full overflow-hidden transition-all duration-300 ${
-          isFocused ? 'border-violet-500 shadow-lg shadow-violet-500/20' : 'border-zinc-700 hover:border-zinc-600'
+        <div className={`flex items-center bg-[#121212] border rounded-full overflow-hidden transition-all duration-200 ${
+          isFocused ? 'border-violet-600/50' : 'border-zinc-800 hover:border-zinc-700'
         }`}>
           <input 
             type="search" 
             name="search" 
             id="search" 
-            placeholder="Search videos..."
+            placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleSearch}
@@ -86,14 +86,14 @@ const NavBar = () => {
               setShowSuggestions(true)
               setIsFocused(true)
             }}
-            className='flex-1 px-4 md:px-5 py-2.5 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm md:text-base' 
+            className='flex-1 px-4 py-2 bg-transparent text-white placeholder-gray-600 focus:outline-none text-sm' 
           />
           <button 
             onClick={performSearch}
-            className='px-4 md:px-6 py-2.5 bg-zinc-800/50 hover:bg-zinc-700 transition-colors border-l border-zinc-700 group'
+            className='px-4 py-2 hover:bg-zinc-800/50 transition-colors group'
             aria-label='Search'
           >
-            <svg className='w-5 h-5 text-gray-400 group-hover:text-white transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <svg className='w-4 h-4 text-gray-500 group-hover:text-gray-300 transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' />
             </svg>
           </button>
@@ -119,16 +119,16 @@ const NavBar = () => {
         )}
       </div>
       
-      <div className='flex items-center gap-2 md:gap-4 min-w-fit'>
+      <div className='flex items-center gap-3 min-w-fit'>
         <Link 
           to="/upload" 
-          className='flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-zinc-800/50 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 transition-all duration-300 group'
+          className='flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-zinc-800/60 transition-all duration-200 group'
           aria-label='Upload video'
         >
-          <svg className='w-5 h-5 text-gray-400 group-hover:text-white transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+          <svg className='w-4 h-4 text-gray-500 group-hover:text-gray-300 transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12' />
           </svg>
-          <span className='text-sm font-medium text-gray-300 group-hover:text-white transition-colors hidden lg:inline'>Upload</span>
+          <span className='text-xs font-normal text-gray-400 group-hover:text-gray-200 transition-colors hidden lg:inline'>Upload</span>
         </Link>
         
         <button className='p-2 rounded-full hover:bg-zinc-800 transition-all duration-300 group relative' aria-label='Notifications'>
