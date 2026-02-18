@@ -17,6 +17,20 @@ const Watch = () => {
                 setChannel(channelData)
                 const recData = await fetchRecommendedVideos(data.snippet.title);
                 setRecommended(recData);
+                
+                // Save to watch history
+                const historyItem = {
+                    id: id,
+                    title: data.snippet.title,
+                    thumbnail: data.snippet.thumbnails.medium.url,
+                    channelTitle: data.snippet.channelTitle,
+                    watchedAt: new Date().toISOString()
+                };
+                
+                const existing = JSON.parse(localStorage.getItem("watchHistory")) || [];
+                const filtered = existing.filter(item => item.id !== id);
+                const updated = [historyItem, ...filtered].slice(0, 50); 
+                localStorage.setItem("watchHistory", JSON.stringify(updated));
             } catch (error) {
                 console.error("Error loading video:", error)
             }

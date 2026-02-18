@@ -11,6 +11,9 @@ const Sidebar = () => {
         <Link to="/" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
           Trending
         </Link>
+        <Link to="/history" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
+          Watch History
+        </Link>
         <Link to="/upload" className="px-4 py-2.5 rounded-lg hover:bg-[#272727] transition-colors text-sm">
           Upload
         </Link>

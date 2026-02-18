@@ -42,7 +42,6 @@ const Search = () => {
   const [pageTokens, setPageTokens] = useState([null]);
 
   useEffect(() => {
-    // Reset pagination when query changes
     setPage(1);
     setPageTokens([null]);
     setNextToken(null);
