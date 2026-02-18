@@ -2,18 +2,60 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { searchVideos } from "../api/youtube";
 
+const Pagination = ({ currentPage, hasNext, hasPrev, onNext, onPrev }) => {
+  return (
+    <div className="flex justify-center items-center gap-4 mt-8 mb-4">
+      <button
+        onClick={onPrev}
+        disabled={!hasPrev}
+        className={`px-6 py-2 rounded-lg font-medium transition-all ${
+          hasPrev
+            ? "bg-orange-600 hover:bg-orange-700 text-white"
+            : "bg-gray-700 text-gray-500 cursor-not-allowed"
+        }`}
+      >
+        Previous
+      </button>
+      <span className="text-white font-medium">Page {currentPage}</span>
+      <button
+        onClick={onNext}
+        disabled={!hasNext}
+        className={`px-6 py-2 rounded-lg font-medium transition-all ${
+          hasNext
+            ? "bg-orange-600 hover:bg-orange-700 text-white"
+            : "bg-gray-700 text-gray-500 cursor-not-allowed"
+        }`}
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
 const Search = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q");
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [nextToken, setNextToken] = useState(null);
+  const [pageTokens, setPageTokens] = useState([null]);
+
+  useEffect(() => {
+    // Reset pagination when query changes
+    setPage(1);
+    setPageTokens([null]);
+    setNextToken(null);
+  }, [query]);
 
   useEffect(() => {
     const loadResults = async () => {
       try {
         setLoading(true);
-        const data = await searchVideos(query);
-        setVideos(data);
+        const pageToken = pageTokens[page - 1];
+        const data = await searchVideos(query, pageToken);
+        setVideos(data.items);
+        setNextToken(data.nextPageToken);
       } catch (error) {
         console.error("Error searching videos:", error);
       } finally {
@@ -23,12 +65,31 @@ const Search = () => {
     if (query) {
       loadResults();
     }
-  }, [query]);
+  }, [query, page, pageTokens]);
+
+  const handleNext = () => {
+    if (nextToken) {
+      setPageTokens(prev => {
+        const newTokens = [...prev];
+        if (newTokens[page] !== nextToken) {
+          newTokens[page] = nextToken;
+        }
+        return newTokens;
+      });
+      setPage(prev => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (page > 1) {
+      setPage(prev => prev - 1);
+    }
+  };
 
   if (loading) {
     return <div className="text-white p-6">Loading results...</div>;
   }
-  
+
   return (
     <div className="w-full max-w-[1800px]">
       <h1 className="text-xl font-semibold text-white mb-4">
@@ -38,8 +99,8 @@ const Search = () => {
         {videos.map((video) => (
           <Link key={video.id.videoId} to={`/watch/${video.id.videoId}`} className="group cursor-pointer">
             <div className="relative overflow-hidden rounded-xl mb-3 bg-[#272727]">
-              <img 
-                src={video.snippet.thumbnails.medium.url} 
+              <img
+                src={video.snippet.thumbnails.medium.url}
                 alt={video.snippet.title}
                 className="w-full aspect-video object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
               />
@@ -67,6 +128,15 @@ const Search = () => {
         <div className="text-gray-400 text-center py-12">
           No results found for "{query}"
         </div>
+      )}
+      {!loading && videos.length > 0 && (
+        <Pagination
+          currentPage={page}
+          hasNext={!!nextToken}
+          hasPrev={page > 1}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
       )}
     </div>
   );
