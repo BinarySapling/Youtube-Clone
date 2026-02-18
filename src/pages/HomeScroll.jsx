@@ -10,13 +10,26 @@ const HomeScroll = () => {
     const observerRef = useRef(null);
     const loadMoreRef = useRef(null);
     const MAX_VIDEOS = 100;
+    const initialLoadRef = useRef(false);
 
     const loadVideos = useCallback(async () => {
         if (loading || !hasMore) return;
         
         setLoading(true);
         try {
-            const data = await fetchTrendingVideos(nextPageToken);
+            const cacheKey = `trending_${nextPageToken || 'initial'}`;
+            const cached = sessionStorage.getItem(cacheKey);
+            let data;
+            
+            if (cached && !nextPageToken) {
+                data = JSON.parse(cached);
+            } else {
+                data = await fetchTrendingVideos(nextPageToken);
+                if (!nextPageToken) {
+                    sessionStorage.setItem(cacheKey, JSON.stringify(data));
+                }
+            }
+            
             setVideos(prev => {
                 const newVideos = [...prev, ...data.items];
                 
@@ -44,7 +57,8 @@ const HomeScroll = () => {
     }, [loading, hasMore, nextPageToken, videos.length]);
 
     useEffect(() => {
-        if (videos.length === 0) {
+        if (videos.length === 0 && !initialLoadRef.current) {
+            initialLoadRef.current = true;
             loadVideos();
         }
     }, [loadVideos, videos.length]);

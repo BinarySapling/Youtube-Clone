@@ -60,7 +60,17 @@ const Search = () => {
       try {
         setLoading(true);
         const pageToken = pageTokens[page - 1];
-        const data = await searchVideos(query, pageToken);
+        const cacheKey = `search_${query}_${pageToken || 'p1'}`;
+        const cached = sessionStorage.getItem(cacheKey);
+        let data;
+        
+        if (cached) {
+          data = JSON.parse(cached);
+        } else {
+          data = await searchVideos(query, pageToken);
+          sessionStorage.setItem(cacheKey, JSON.stringify(data));
+        }
+        
         setVideos(data.items);
         setNextToken(data.nextPageToken);
       } catch (error) {

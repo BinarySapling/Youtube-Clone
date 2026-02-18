@@ -4,13 +4,15 @@ A modern video streaming platform built with React and Tailwind CSS.
 
 ## Features
 
-- Browse trending videos
-- Search functionality  
+- Browse trending videos with infinite scroll
+- Search functionality with pagination
+- SessionStorage caching to reduce API calls
 - Responsive design
 - Dark theme with violet accents
-- Watch videos with recommendations
+- Watch videos with YouTube iframe embed
 - Watch History with localStorage
 - Infinite scroll (100 videos limit)
+- Optimized API usage to prevent rate limiting
 - Upload and Profile pages
 
 ## Tech Stack
