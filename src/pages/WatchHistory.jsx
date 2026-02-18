@@ -48,7 +48,7 @@ const WatchHistory = () => {
                                 />
                             </div>
                             <div className="flex gap-3">
-                                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-sm font-semibold text-white">
+                                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-zinc-700 flex items-center justify-center text-sm font-semibold text-white border border-zinc-600">
                                     {video.channelTitle ? video.channelTitle[0].toUpperCase() : 'V'}
                                 </div>
                                 <div className="flex-1 min-w-0">

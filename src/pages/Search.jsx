@@ -4,29 +4,37 @@ import { searchVideos } from "../api/youtube";
 
 const Pagination = ({ currentPage, hasNext, hasPrev, onNext, onPrev }) => {
   return (
-    <div className="flex justify-center items-center gap-4 mt-8 mb-4">
+    <div className="flex justify-between items-center mt-6 pt-6 border-t border-zinc-800/50">
       <button
         onClick={onPrev}
         disabled={!hasPrev}
-        className={`px-6 py-2 rounded-lg font-medium transition-all ${
+        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
           hasPrev
-            ? "bg-orange-600 hover:bg-orange-700 text-white"
-            : "bg-gray-700 text-gray-500 cursor-not-allowed"
+            ? "text-white hover:bg-zinc-800"
+            : "text-gray-600 cursor-not-allowed"
         }`}
       >
-        Previous
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Previous</span>
       </button>
-      <span className="text-white font-medium">Page {currentPage}</span>
+      
+      <span className="text-sm text-gray-400">Page {currentPage}</span>
+      
       <button
         onClick={onNext}
         disabled={!hasNext}
-        className={`px-6 py-2 rounded-lg font-medium transition-all ${
+        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
           hasNext
-            ? "bg-orange-600 hover:bg-orange-700 text-white"
-            : "bg-gray-700 text-gray-500 cursor-not-allowed"
+            ? "text-white hover:bg-zinc-800"
+            : "text-gray-600 cursor-not-allowed"
         }`}
       >
-        Next
+        <span>Next</span>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
     </div>
   );
@@ -105,7 +113,7 @@ const Search = () => {
               />
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-sm font-semibold text-white">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-zinc-700 flex items-center justify-center text-sm font-semibold text-white border border-zinc-600">
                 {video.snippet.channelTitle[0].toUpperCase()}
               </div>
               <div className="flex-1 min-w-0">
