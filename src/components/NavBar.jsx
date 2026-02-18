@@ -60,23 +60,19 @@ const NavBar = () => {
   },[search, searchHistory])
   
   return (
-    <nav className='sticky top-0 z-50 flex items-center justify-between px-4 md:px-6 py-2.5 bg-[#0f0f0f]/95 backdrop-blur-md text-white border-b border-zinc-800/50 shadow-lg'>
-      {/* Logo */}
-      <Link to="/" className='flex items-center gap-2 group min-w-fit'>
-        <div className='w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300 group-hover:scale-105'>
-          <svg className='w-5 h-5 text-white' fill='currentColor' viewBox='0 0 24 24'>
-            <path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'/>
-          </svg>
+    <nav className='sticky top-0 z-50 flex items-center justify-between px-8 md:px-6 py-2.5 bg-[#0f0f0f]/95 backdrop-blur-md text-white border-b border-zinc-800/50 shadow-lg'>
+      <Link to="/" className='flex items-center gap-3 group min-w-fit'>
+        <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center border border-slate-600 group-hover:border-slate-500 transition-all duration-300'>
+          <span className='text-xl font-bold text-white tracking-tight'>VH</span>
         </div>
-        <span className='text-lg font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent hidden sm:block group-hover:from-orange-400 group-hover:to-red-400 transition-all duration-300'>
-          MediaTube
+        <span className='text-lg font-semibold text-white hidden sm:block tracking-wide'>
+          ViewHub
         </span>
       </Link>
       
-      {/* Search Bar */}
       <div className='flex-1 max-w-2xl mx-4 md:mx-8 relative' ref={searchRef}>
         <div className={`flex items-center bg-[#121212] border rounded-full overflow-hidden transition-all duration-300 ${
-          isFocused ? 'border-blue-500 shadow-lg shadow-blue-500/20' : 'border-zinc-700 hover:border-zinc-600'
+          isFocused ? 'border-violet-500 shadow-lg shadow-violet-500/20' : 'border-zinc-700 hover:border-zinc-600'
         }`}>
           <input 
             type="search" 
@@ -103,7 +99,6 @@ const NavBar = () => {
           </button>
         </div>
         
-        {/* Search Suggestions Dropdown */}
         {showSuggestions && filteredSuggestions.length > 0 && (
           <div className='absolute top-full mt-2 w-full bg-[#212121] rounded-xl shadow-2xl shadow-black/50 border border-zinc-700/50 overflow-hidden z-50 backdrop-blur-xl'>
             <div className='py-2'>
@@ -113,7 +108,7 @@ const NavBar = () => {
                   onClick={() => handleSuggestionClick(suggestion)}
                   className='px-4 py-2.5 hover:bg-zinc-800/80 cursor-pointer text-sm text-gray-200 transition-all duration-150 flex items-center gap-3 group'
                 >
-                  <svg className='w-4 h-4 text-gray-500 group-hover:text-blue-400 transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <svg className='w-4 h-4 text-gray-500 group-hover:text-violet-400 transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
                   </svg>
                   <span className='group-hover:text-white transition-colors'>{suggestion}</span>
@@ -124,21 +119,18 @@ const NavBar = () => {
         )}
       </div>
       
-      {/* Action Buttons */}
       <div className='flex items-center gap-2 md:gap-4 min-w-fit'>
-        {/* Upload Button */}
         <Link 
           to="/upload" 
           className='flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-zinc-800/50 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 transition-all duration-300 group'
           aria-label='Upload video'
         >
-          <svg className='w-5 h-5 text-gray-400 group-hover:text-orange-500 transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+          <svg className='w-5 h-5 text-gray-400 group-hover:text-white transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12' />
           </svg>
           <span className='text-sm font-medium text-gray-300 group-hover:text-white transition-colors hidden lg:inline'>Upload</span>
         </Link>
         
-        {/* Notifications */}
         <button className='p-2 rounded-full hover:bg-zinc-800 transition-all duration-300 group relative' aria-label='Notifications'>
           <svg className='w-6 h-6 text-gray-400 group-hover:text-white transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9' />
@@ -146,10 +138,9 @@ const NavBar = () => {
           <span className='absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-[#0f0f0f]'></span>
         </button>
         
-        {/* Profile */}
         <Link 
           to="/profile" 
-          className='w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-sm font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-orange-400/50'
+          className='w-9 h-9 rounded-full bg-zinc-700 flex items-center justify-center text-sm font-semibold hover:bg-zinc-600 transition-colors border border-zinc-600'
           aria-label='Profile'
         >
           U

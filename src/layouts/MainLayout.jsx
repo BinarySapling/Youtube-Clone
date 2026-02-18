@@ -8,7 +8,7 @@ const MainLayout = () => {
       <NavBar />
       <div className="flex">
         <SideBar />
-        <div className="flex-1 p-6 overflow-x-hidden bg-[#0f0f0f]">
+        <div className="flex-1 p-6 overflow-x-hidden bg-[#0f0f0f] ml-60 ">
           <Outlet />
         </div>
       </div>

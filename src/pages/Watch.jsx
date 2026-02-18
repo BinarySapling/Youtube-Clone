@@ -18,7 +18,6 @@ const Watch = () => {
                 const recData = await fetchRecommendedVideos(data.snippet.title);
                 setRecommended(recData);
                 
-                // Save to watch history
                 const historyItem = {
                     id: id,
                     title: data.snippet.title,
