@@ -61,12 +61,18 @@ const NavBar = () => {
   
   return (
     <nav className='sticky top-0 z-50 flex items-center justify-between px-8 md:px-6 py-2.5 bg-[#0f0f0f]/95 backdrop-blur-md text-white border-b border-zinc-800/50 shadow-lg'>
-      <Link to="/" className='flex items-center gap-2.5 group min-w-fit'>
-        <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-violet-700 to-purple-700 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300'>
-          <span className='text-lg font-medium text-white tracking-tight'>VS</span>
-        </div>
-        <span className='text-lg font-medium hidden sm:block tracking-tight'>
+      <Link to="/" className='flex items-center gap-2 group min-w-fit'>
+        <span className='text-lg font-medium hidden sm:flex items-center gap-2 tracking-tight'>
           <span className='text-white'>Vid</span><span className='text-violet-500'>Stream</span>
+          <svg className='w-5 h-5 text-violet-500' fill='currentColor' viewBox='0 0 24 24'>
+            <path d='M8 5v14l11-7z'/>
+          </svg>
+        </span>
+        <span className='text-lg font-medium sm:hidden flex items-center gap-1.5'>
+          <span className='text-white'>Vid</span><span className='text-violet-500'>Stream</span>
+          <svg className='w-4 h-4 text-violet-500' fill='currentColor' viewBox='0 0 24 24'>
+            <path d='M8 5v14l11-7z'/>
+          </svg>
         </span>
       </Link>
       

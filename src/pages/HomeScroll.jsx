@@ -81,7 +81,7 @@ const HomeScroll = () => {
                     <Link
                         key={category}
                         to="/"
-                        className={`px-3 py-1 rounded-lg text-xs font-normal whitespace-nowrap transition-all duration-200 ${
+                        className={`px-5 py-1.5 rounded-full text-sm font-light whitespace-nowrap transition-all duration-200 ${
                             category === 'All'
                                 ? 'bg-zinc-800 text-white border border-zinc-700'
                                 : 'bg-zinc-900/50 text-gray-400 hover:bg-zinc-800/50 hover:text-gray-300 border border-zinc-800'
